@@ -37,13 +37,15 @@
       </div>
     </div>
     <div class="mt-16 md:mt-20 flex flex-col md:flex-row items-center justify-between 3xl:max-w-[85%] mx-auto">
-      <div class="flex items-center gap-1">
-        <p>Backed By</p>
-        <img src="/images/xtentionLogo.svg" alt="">
-      </div>
-      <div class="text-[#89A3B2]">
-        <p>All Rights Reserved</p>
-      </div>
+    <div class="flex items-center gap-1">
+      <p>Backed By</p>
+      <a href="https://www.xtentioncrew.tech/" target="_blank">
+        <img src="/images/xtentionLogo.svg" alt="Xtention Logo">
+      </a>
+    </div>
+    <div class="text-[#89A3B2]">
+      <p>All Rights Reserved</p>
+    </div>
     </div>
   </footer>
 </template>

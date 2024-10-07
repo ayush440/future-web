@@ -1,8 +1,11 @@
 <template>
   <div class="flex justify-between items-center py-4 px-6 sticky top-0 z-30 bg-white border-b">
     <div class="flex items-center space-x-2">
-      <img src="/images/LOGO.svg" alt="logo" class="w-[60%] md:w-[80%] xl:w-[90%]">
-     
+      <img 
+        src="/images/LOGO.svg" 
+        alt="Future Management Services Logo" 
+        class="w-auto h-12 md:h-16 lg:h-20 xl:h-24"
+      >
     </div>
 
     <!-- Links for desktop screens -->
@@ -89,5 +92,8 @@ const toggleSidebar = () => {
 </script>
 
 <style scoped>
-/* Optional: Add custom styles if needed */
+img {
+  max-width: none;
+  object-fit: contain;
+}
 </style>
