@@ -14,10 +14,10 @@ import { RouterLink } from 'vue-router'
       <div class="space-y-2 text-[16px] justify-self-start mt-8 md:mt-0 md:justify-self-center">
         <p>Quick Links</p>
         <div class="text-[#89A3B2] space-y-1">
-          <p>Register as a User</p>
-          <p>Sign in</p>
-          <RouterLink :to="{ path: '/', hash: '#about' }" class= "cursor-pointer hover:text-white">About Us</RouterLink>
-          <p>Contact Us</p>
+          <a class="cursor-pointer hover:text-white block" href="https://app.futuremanagment.com/register">Register as a User</a>
+          <a class="cursor-pointer hover:text-white block" href="https://app.futuremanagment.com/register">Sign in</a>
+          <RouterLink :to="{ path: '/', hash: '#about' }" class="cursor-pointer hover:text-white block">About Us</RouterLink>
+          <a class="cursor-pointer hover:text-white block" href="#">Contact Us</a>
         </div>
       </div>
       <div class="space-y-2 text-[16px] justify-self-start mt-8 md:mt-0 md:justify-self-center">
@@ -45,7 +45,6 @@ import { RouterLink } from 'vue-router'
         </a>
       </div>
       <div class="text-[#89A3B2]">
-        <!-- all rights -->
         <p>All Rights Reserved</p>  
       </div>
     </div>
