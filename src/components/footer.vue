@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <footer class="px-10 pt-10 md:pt-16 xl:px-20 pb-10 bg-[#0F1E1C] text-white">
+  <footer class="px-10 pt-10 md:pt-16 xl:px-20 pb-10 bg-[#31427a] text-white">
     <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 place-items-start justify-items-center 3xl:max-w-[85%] mx-auto">
       <div class="space-y-6 justify-self-start mt-8 md:mt-0 md:justify-self-center">
         <img src="/images/LOGOlight.svg" alt="Company Logo" />
