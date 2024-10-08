@@ -1,10 +1,12 @@
-<script setup></script>
+<script setup>
+import { RouterLink } from 'vue-router'
+</script>
 
 <template>
   <footer class="px-10 pt-10 md:pt-16 xl:px-20  pb-10 bg-[#0F1E1C] text-white ">
     <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 place-items-start justify-items-center 3xl:max-w-[85%] mx-auto">
       <div class="space-y-6 justify-self-start mt-8 md:mt-0 md:justify-self-center">
-        <img src="/images/LOGOlight.svg" alt="" />
+        <img src="/images/LOGOlight.svg" alt="Company Logo" />
         <p class="text-[#89A3B2] text-[16px]">
           Keep all your health records in one secure place for easy access to
           your medical history during doctor visits.
@@ -21,10 +23,10 @@
       </div>
       <div class="space-y-2 text-[16px] justify-self-start mt-8 md:mt-0 md:justify-self-center">
         <p>Legal</p>
-        <div class="text-[#89A3B2] space-y-1">
-          <p>Disclaimer</p>
-          <p>Privacy Policy</p>
-          <p>Terms & Conditions</p>
+        <div class="text-[#89A3B2] space-y-1 flex flex-col">
+          <RouterLink :to="{ path: '/terms-and-conditions', hash: '#disclaimer' }" class="cursor-pointer hover:text-white">Disclaimer</RouterLink>
+          <RouterLink :to="{ path: '/terms-and-conditions', hash: '#privacy' }" class="cursor-pointer hover:text-white">Privacy Policy</RouterLink>
+          <RouterLink :to="{ path: '/terms-and-conditions', hash: '#terms' }" class="cursor-pointer hover:text-white">Terms & Conditions</RouterLink>
         </div>
       </div>
       <div class="space-y-3 text-[16px] justify-self-start mt-8 xl:justify-self-center xl:mt-0">
@@ -44,7 +46,7 @@
       </a>
     </div>
     <div class="text-[#89A3B2]">
-      <p>All Rights Reserved</p>
+      <p>All Rights Reserved</p> 
     </div>
     </div>
   </footer>
