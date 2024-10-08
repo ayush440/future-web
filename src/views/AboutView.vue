@@ -1,6 +1,6 @@
 <script setup>
 
-import TermsCondition from '@/components/TermsCondition.vue';
+import TermsCondition from '.TermsAndConditions.vue';
 
 
 
