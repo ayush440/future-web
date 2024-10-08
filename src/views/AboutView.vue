@@ -1,6 +1,5 @@
 <script setup>
-import Disclaimer from '@/components/Disclaimer.vue';
-import PrivacyPolicy from '@/components/PrivacyPolicy.vue';
+
 import TermsCondition from '@/components/TermsCondition.vue';
 
 
@@ -18,8 +17,8 @@ import TermsCondition from '@/components/TermsCondition.vue';
       </main>
       <div>
         <TermsCondition id="terms"/>
-        <PrivacyPolicy id="privacy"/>
-        <Disclaimer id="disclaimer"/>
+       
+        
       </div>
     </div>
     
