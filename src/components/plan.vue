@@ -44,7 +44,7 @@
               Ideal for individuals who need quick access to basic features.
             </p>
             <div class="text-white mb-4 md:mb-6 flex items-end gap-2">
-              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">${{ isYearly ? '21000' : '2399' }}</p>
+              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">₹{{ isYearly ? '21000' : '2399' }}</p>
               <p class="text-white text-xs md:text-sm">+GST / {{ isYearly ? 'Year' : 'Month' }}</p>
             </div>
           </div>
@@ -76,7 +76,7 @@
               Ideal for individuals who need advanced features for evaluation.
             </p>
             <div class="text-white mb-4 md:mb-6 flex items-end gap-2">
-              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">${{ isYearly ? '28000' : '3199' }}</p>
+              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">₹{{ isYearly ? '28000' : '3199' }}</p>
               <p class="text-white text-xs md:text-sm">+GST / {{ isYearly ? 'Year' : 'Month' }}</p>
             </div>
           </div>
@@ -105,7 +105,7 @@
               professional trading.
             </p>
             <div class="mb-4 md:mb-6 flex items-end gap-2">
-              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">${{ isYearly ? '36000' : '4199' }}</p>
+              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">₹{{ isYearly ? '36000' : '4199' }}</p>
               <p class="text-xs md:text-sm">+GST / {{ isYearly ? 'Year' : 'Month' }}</p>
             </div>
           </div>
@@ -138,7 +138,7 @@
               large-scale trading.
             </p>
             <div class="text-white mb-4 md:mb-6 flex items-end gap-2">
-              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">${{ isYearly ? '50000' : '5999' }}</p>
+              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">₹{{ isYearly ? '50000' : '5999' }}</p>
               <p class="text-[#4B5768] text-xs md:text-sm">+GST / {{ isYearly ? 'Year' : 'Month' }}</p>
             </div>
           </div>
