@@ -40,7 +40,7 @@
     <div class="flex items-center gap-1">
       <p>Backed By</p>
       <a href="https://www.xtentioncrew.tech/" target="_blank">
-        <img src="/images/xtentionLogo.svg" alt="Xtention Logo">
+        <img src="/images/image6.png" alt="Xtention Logo">
       </a>
     </div>
     <div class="text-[#89A3B2]">
