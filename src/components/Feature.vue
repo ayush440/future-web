@@ -12,10 +12,13 @@ const content = [
 
 <template>
   <section class="p-8 md:p-10 xl:p-20">
-    <div class="flex flex-col items-center justify-center space-y-2 mx-auto w-full md:w-[80%] xl:w-[60%]">
-      <h1 class="font-semibold text-[35px] xl:text-[42px] text-center leading-[50px] md:leading-[55px]">Trade Smarter, Faster, and with Confidence</h1>
-      <p class="text-[#52525B] text-[18px] text-center">Explore Our Key Features</p>
-    </div>
+    <div class="flex flex-col items-center justify-center space-y-2 mx-auto w-full md:w-[80%] xl:w-[60%] -mt-[60px]">
+  <h1 class="font-semibold text-[35px] xl:text-[42px] text-center leading-[50px] md:leading-[55px]">
+    Trade Smarter, Faster, and with Confidence
+  </h1>
+  <p class="text-[#52525B] text-[18px] text-center">Explore Our Key Features</p>
+</div>
+
     <div class="">
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-0 md:mt-10 3xl:max-w-[75%] mx-auto text-theme-background">
       <div

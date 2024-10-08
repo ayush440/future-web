@@ -360,21 +360,21 @@ section {
 }
 
 h2 {
-  color: #45c3d2;
+  color: #31427a;
   font-size: 24px;
   margin-bottom: 15px;
   padding-top: 20px; /* Added padding to ensure visibility */
 }
 
 h3 {
-  color: #45c3d2;
+  color: #31427a;
   font-size: 20px;
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
 h4 {
-  color: #45c3d2;
+  color: #31427a;
   font-size: 18px;
   margin-top: 15px;
   margin-bottom: 10px;
