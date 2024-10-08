@@ -19,7 +19,7 @@
           <button @click="scrollTo('terms')" class="hover:text-gray-400">Terms & Conditions</button>
         </div>
         <button class="bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded">
-          Login/Signup
+          <a href="https://app.futuremanagment.com/">Login/Signup</a>
         </button>
       </div>
 
@@ -73,7 +73,7 @@
           <button @click="scrollTo('privacy')" class="hover:text-gray-400">Privacy Policy</button>
           <button @click="scrollTo('terms')" class="hover:text-gray-400">Terms & Conditions</button>
           <button class="bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded">
-            Login/Signup
+            <a href="https://app.futuremanagment.com/">Login/Signup</a>
           </button>
         </div>
       </div>

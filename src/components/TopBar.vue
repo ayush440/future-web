@@ -17,7 +17,7 @@
         <a href="#pricing" class="hover:text-gray-400">Pricing</a>
       </div>
       <button class="bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded">
-        Login/Signup
+        <a href="https://app.futuremanagment.com/">Login/Signup</a>
       </button>
     </div>
 
@@ -72,7 +72,7 @@
         <a href="#contact" class="hover:text-gray-400">Contact</a>
         <a href="#pricing" class="hover:text-gray-400">Pricing</a>
         <button class="bg-primary hover:bg-blue-800 text-white px-4 py-2 rounded">
-          Login/Signup
+          <a href="https://app.futuremanagment.com/">Login/Signup</a> Login/Signup
         </button>
       </div>
     </div>

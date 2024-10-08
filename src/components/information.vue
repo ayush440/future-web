@@ -1,16 +1,14 @@
 <script setup></script>
 
 <template>
-  <section class="p-10 md:p-16 xl:p-20 3xl:max-w-[85%] mx-auto">
-    <div class="w-full xl:w-[60%] space-y-3 ">
+  <section id="about-us" class="p-10 md:p-16 xl:p-20 3xl:max-w-[85%] mx-auto">
+    <div class="w-full xl:w-[60%] space-y-3">
       <p class="text-[#31427A] font-bold text-[16px]">About Us</p>
       <h1 class="font-bold text-[30px] md:text-[36px] leading-[40px] md:leading-[45px]">
         Empowering Smarter Trades with Precision, Automation, and Global Reach.
       </h1>
       <p class="text-[#667085] text-[16px] md:text-[20px]">
-        We believe in a future where trading is smarter, faster, and more
-        accessible for everyone. Join us on this journey to reshape the trading
-        landscape.
+        We believe in a future where trading is smarter, faster, and more accessible for everyone. Join us on this journey to reshape the trading landscape.
       </p>
     </div>
     <div class="mt-16 flex flex-col xl:flex-row space-y-8 xl:space-y-0 items-center justify-between gap-10">

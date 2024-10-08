@@ -1,145 +1,161 @@
 <template>
-  <section class="bg-[#31427A] text-white py-16">
-    <div class="container mx-auto">
+  <section class="bg-[#31427A] text-white py-8 md:py-16">
+    <div class="container mx-auto px-4">
       <!-- Title and Description -->
-      <div class="w-[90%] md:w-[80%] xl:w-[50%] mx-auto space-y-6 text-center">
-        <h2 class="text-3xl md:text-4xl font-bold leading-tight">
+      <div class="w-full md:w-[80%] xl:w-[60%] mx-auto space-y-4 md:space-y-6 text-center mb-8 md:mb-12">
+        <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
           Simple, Transparent Pricing
         </h2>
-        <p class="text-base md:text-lg">
+        <p class="text-sm md:text-base lg:text-lg">
           Our pricing plans are designed to suit traders of all levels, offering flexible options without hidden fees. Get access to premium features and expert tools that help you maximize your returns while minimizing costs.
         </p>
       </div>
 
       <!-- Toggle between Monthly and Yearly -->
-      <div class="flex justify-center items-center mt-8 mb-8 space-x-4 relative">
-        <span>Pay Monthly</span>
+      <div class="flex justify-center items-center mt-4 mb-8 space-x-4 relative">
+        <span class="text-sm md:text-base">Pay Monthly</span>
         <label class="flex items-center cursor-pointer">
           <input type="checkbox" v-model="isYearly" class="hidden" />
           <div
-            class="toggle-bg w-14 h-7 flex items-center bg-gray-500 rounded-full p-1"
+            class="toggle-bg w-12 md:w-14 h-6 md:h-7 flex items-center bg-gray-500 rounded-full p-1"
           >
-            <div class="dot w-6 h-6 bg-white rounded-full shadow-md"></div>
+            <div class="dot w-5 md:w-6 h-5 md:h-6 bg-white rounded-full shadow-md"></div>
           </div>
         </label>
-        <span>Pay Yearly</span>
-        <div class="hidden md:block absolute top-2 right-0 md:top-0 md:right-[80px] xl:top-[-5px] xl:right-[350px] 2xl:right-[450px]">
-          <img src="/src/components/icons/save25.svg" alt="Save 25%" class="w-16 h-16">
+        <span class="text-sm md:text-base">Pay Yearly</span>
+        <div class="hidden md:block absolute top-0 right-0 md:right-4 lg:right-8 xl:right-12">
+          <img src="/src/components/icons/save25.svg" alt="Save 25%" class="w-12 h-12 md:w-16 md:h-16">
         </div>
       </div>
 
       <!-- Pricing Plans -->
       <div
-        class="grid px-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-4 w-full md:w-[65%] xl:w-[95%] 2xl:w-[85%] mx-auto gap-6 md:mt-20 xl:mt-16"
+        class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl mx-auto"
       >
-        <!-- Freebie Plan -->
+        <!-- Essential Plan -->
         <div
-          class="bg-white bg-opacity-5 border border-white border-opacity-10 p-6 rounded-lg shadow-lg"
+          class="bg-white bg-opacity-5 border border-white border-opacity-10 p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between"
         >
-          <h3 class="text-xl text-left text-white font-semibold mb-4">
-            Freebie
-          </h3>
-          <p class="text-white text-left mb-4">
-            Ideal for individuals who need quick access to basic features.
-          </p>
-          <div class="text-white mb-6 flex items-center gap-4">
-            <p class="text-[56px] text-left font-semibold">$0</p>
-            <p class="text-white text-[16px]">/ {{ isYearly ? 'Year' : 'Month' }}</p>
+          <div>
+            <h3 class="text-lg md:text-xl text-left text-white font-semibold mb-2 md:mb-4">
+              Essential
+            </h3>
+            <p class="text-white text-left text-sm md:text-base mb-4">
+              Ideal for individuals who need quick access to basic features.
+            </p>
+            <div class="text-white mb-4 md:mb-6 flex items-end gap-2">
+              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">${{ isYearly ? '21000' : '2399' }}</p>
+              <p class="text-white text-xs md:text-sm">+GST / {{ isYearly ? 'Year' : 'Month' }}</p>
+            </div>
           </div>
-          <button
-            class="w-full bg-transparent border-2 border-white text-white py-2 rounded-lg mb-6 hover:bg-white hover:text-blue-800"
-          >
-            Get Started Now
-          </button>
-          <!-- Features List -->
-          <ul class="space-y-4 text-white w-full md:mx-0 lg:mx-0 sm:mx-0">
-            <li v-for="(feature, index) in freebieFeatures" :key="index" class="flex items-start gap-2 text-[16px]">
-              <img :src="feature.included ? '/images/icons/right.svg' : '/images/icons/wrong.svg'" class="w-5 h-5 mt-0.5 flex-shrink-0" :alt="feature.included ? 'Included' : 'Not included'" />
-              <span>{{ feature.text }}</span>
-            </li>
-          </ul>
+          <div>
+            <button
+              class="w-full bg-transparent border-2 border-white text-white py-2 rounded-lg mb-4 md:mb-6 hover:bg-white hover:text-blue-800 text-sm md:text-base"
+            >
+              Get Started Now
+            </button>
+            <!-- Features List -->
+            <ul class="space-y-2 md:space-y-4 text-white w-full">
+              <li v-for="(feature, index) in essentialFeatures" :key="index" class="flex items-start gap-2 text-xs md:text-sm">
+                <img :src="feature.included ? '/images/icons/right.svg' : '/images/icons/wrong.svg'" class="w-4 h-4 md:w-5 md:h-5 mt-0.5 flex-shrink-0" :alt="feature.included ? 'Included' : 'Not included'" />
+                <span>{{ feature.text }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <!-- Additional Freebie Plan (Exact copy of the first one) -->
+        <!-- Evaluation Plan -->
         <div
-          class="bg-white bg-opacity-5 border border-white border-opacity-10 p-6 rounded-lg shadow-lg"
+          class="bg-white bg-opacity-5 border border-white border-opacity-10 p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between"
         >
-          <h3 class="text-xl text-left text-white font-semibold mb-4">
-            Freebie
-          </h3>
-          <p class="text-white text-left mb-4">
-            Ideal for individuals who need quick access to basic features.
-          </p>
-          <div class="text-white mb-6 flex items-center gap-4">
-            <p class="text-[56px] text-left font-semibold">$0</p>
-            <p class="text-white text-[16px]">/ {{ isYearly ? 'Year' : 'Month' }}</p>
+          <div>
+            <h3 class="text-lg md:text-xl text-left text-white font-semibold mb-2 md:mb-4">
+              Evaluation
+            </h3>
+            <p class="text-white text-left text-sm md:text-base mb-4">
+              Ideal for individuals who need advanced features for evaluation.
+            </p>
+            <div class="text-white mb-4 md:mb-6 flex items-end gap-2">
+              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">${{ isYearly ? '28000' : '3199' }}</p>
+              <p class="text-white text-xs md:text-sm">+GST / {{ isYearly ? 'Year' : 'Month' }}</p>
+            </div>
           </div>
-          <button
-            class="w-full bg-transparent border-2 border-white text-white py-2 rounded-lg mb-6 hover:bg-white hover:text-blue-800"
-          >
-            Get Started Now
-          </button>
-          <!-- Features List -->
-          <ul class="space-y-4 text-white w-full md:mx-0 lg:mx-0 sm:mx-0">
-            <li v-for="(feature, index) in freebieFeatures" :key="index" class="flex items-start gap-2 text-[16px]">
-              <img :src="feature.included ? '/images/icons/right.svg' : '/images/icons/wrong.svg'" class="w-5 h-5 mt-0.5 flex-shrink-0" :alt="feature.included ? 'Included' : 'Not included'" />
-              <span>{{ feature.text }}</span>
-            </li>
-          </ul>
+          <div>
+            <button
+              class="w-full bg-transparent border-2 border-white text-white py-2 rounded-lg mb-4 md:mb-6 hover:bg-white hover:text-blue-800 text-sm md:text-base"
+            >
+              Get Started Now
+            </button>
+            <!-- Features List -->
+            <ul class="space-y-2 md:space-y-4 text-white w-full">
+              <li v-for="(feature, index) in evaluationFeatures" :key="index" class="flex items-start gap-2 text-xs md:text-sm">
+                <img :src="feature.included ? '/images/icons/right.svg' : '/images/icons/wrong.svg'" class="w-4 h-4 md:w-5 md:h-5 mt-0.5 flex-shrink-0" :alt="feature.included ? 'Included' : 'Not included'" />
+                <span>{{ feature.text }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <!-- Professional Plan -->
-        <div class="bg-[#30AFE5] p-6 rounded-lg shadow-lg">
-          <h3 class="text-xl font-semibold mb-4 text-left">Professional</h3>
-          <p class="text-white-300 mb-4 text-left">
-            Ideal for individuals who need advanced features and tools for
-            client work.
-          </p>
-          <div class="mb-6 flex items-center gap-4">
-            <p class="text-[56px] text-left font-semibold">${{ isYearly ? '250' : '25' }}</p>
-            <p class="text-[16px]">/ {{ isYearly ? 'Year' : 'Month' }}</p>
+        <!-- Elite Plan -->
+        <div class="bg-[#30AFE5] p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between">
+          <div>
+            <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-4 text-left">Elite</h3>
+            <p class="text-white-300 mb-4 text-left text-sm md:text-base">
+              Ideal for individuals who need advanced features and tools for
+              professional trading.
+            </p>
+            <div class="mb-4 md:mb-6 flex items-end gap-2">
+              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">${{ isYearly ? '36000' : '4199' }}</p>
+              <p class="text-xs md:text-sm">+GST / {{ isYearly ? 'Year' : 'Month' }}</p>
+            </div>
           </div>
-          <button
-            class="w-full bg-white text-blue-800 py-2 rounded-lg mb-6 hover:bg-gray-100"
-          >
-            Get Started Now
-          </button>
-          <!-- Features List -->
-          <ul class="space-y-4 w-full md:mx-0 lg:mx-0 sm:mx-0">
-            <li v-for="(feature, index) in professionalFeatures" :key="index" class="flex items-start gap-2 text-[16px]">
-              <img :src="feature.included ? '/images/icons/right.svg' : '/images/icons/wrong.svg'" class="w-5 h-5 mt-0.5 flex-shrink-0" :alt="feature.included ? 'Included' : 'Not included'" />
-              <span>{{ feature.text }}</span>
-            </li>
-          </ul>
+          <div>
+            <button
+              class="w-full bg-white text-blue-800 py-2 rounded-lg mb-4 md:mb-6 hover:bg-gray-100 text-sm md:text-base"
+            >
+              Get Started Now
+            </button>
+            <!-- Features List -->
+            <ul class="space-y-2 md:space-y-4 w-full">
+              <li v-for="(feature, index) in eliteFeatures" :key="index" class="flex items-start gap-2 text-xs md:text-sm">
+                <img :src="feature.included ? '/images/icons/right.svg' : '/images/icons/wrong.svg'" class="w-4 h-4 md:w-5 md:h-5 mt-0.5 flex-shrink-0" :alt="feature.included ? 'Included' : 'Not included'" />
+                <span>{{ feature.text }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <!-- Enterprise Plan -->
+        <!-- HNI Plan -->
         <div
-          class="bg-white bg-opacity-5 border border-opacity-10 border-white p-6 rounded-lg shadow-lg"
+          class="bg-white bg-opacity-5 border border-opacity-10 border-white p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between"
         >
-          <h3 class="text-xl text-left text-white font-semibold mb-4">
-            Enterprise
-          </h3>
-          <p class="text-white text-left mb-4">
-            Ideal for businesses who need personalized services and security for
-            large teams.
-          </p>
-          <div class="text-white mb-6 flex items-center gap-4">
-            <p class="text-[56px] text-left font-semibold">${{ isYearly ? '1000' : '100' }}</p>
-            <p class="text-[#4B5768] text-[16px]">/ {{ isYearly ? 'Year' : 'Month' }}</p>
+          <div>
+            <h3 class="text-lg md:text-xl text-left text-white font-semibold mb-2 md:mb-4">
+              HNI
+            </h3>
+            <p class="text-white text-left text-sm md:text-base mb-4">
+              Ideal for high net-worth individuals who need personalized services and security for
+              large-scale trading.
+            </p>
+            <div class="text-white mb-4 md:mb-6 flex items-end gap-2">
+              <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">${{ isYearly ? '50000' : '5999' }}</p>
+              <p class="text-[#4B5768] text-xs md:text-sm">+GST / {{ isYearly ? 'Year' : 'Month' }}</p>
+            </div>
           </div>
-          <button
-            class="w-full bg-transparent border-2 border-white text-white py-2 rounded-lg mb-6 hover:bg-white hover:text-blue-800"
-          >
-            Get Started Now
-          </button>
-          <!-- Features List -->
-          <ul class="space-y-4 text-white w-full md:mx-0 lg:mx-0 sm:mx-0">
-            <li v-for="(feature, index) in enterpriseFeatures" :key="index" class="flex items-start gap-2 text-[16px]">
-              <img :src="feature.included ? '/images/icons/right.svg' : '/images/icons/wrong.svg'" class="w-5 h-5 mt-0.5 flex-shrink-0" :alt="feature.included ? 'Included' : 'Not included'" />
-              <span>{{ feature.text }}</span>
-            </li>
-          </ul>
+          <div>
+            <button
+              class="w-full bg-transparent border-2 border-white text-white py-2 rounded-lg mb-4 md:mb-6 hover:bg-white hover:text-blue-800 text-sm md:text-base"
+            >
+              Get Started Now
+            </button>
+            <!-- Features List -->
+            <ul class="space-y-2 md:space-y-4 text-white w-full">
+              <li v-for="(feature, index) in hniFeatures" :key="index" class="flex items-start gap-2 text-xs md:text-sm">
+                <img :src="feature.included ? '/images/icons/right.svg' : '/images/icons/wrong.svg'" class="w-4 h-4 md:w-5 md:h-5 mt-0.5 flex-shrink-0" :alt="feature.included ? 'Included' : 'Not included'" />
+                <span>{{ feature.text }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -152,35 +168,45 @@ export default {
   data() {
     return {
       isYearly: false,
-      freebieFeatures: [
-        { text: "20,000+ of PNG & SVG graphics", included: true },
-        { text: "Access to 100 million stock images", included: true },
-        { text: "Upload custom icons and fonts", included: false },
-        { text: "Unlimited Sharing", included: false },
-        { text: "Upload graphics & video in up to 4k", included: false },
-        { text: "Unlimited Projects", included: false },
-        { text: "Instant Access to our design system", included: false },
-        { text: "Create teams to collaborate on designs", included: false },
+      essentialFeatures: [
+        { text: "1 YEAR ACCESS", included: true },
+        { text: "NO HIDDEN CHARGES", included: true },
+        { text: "NO OF DEPLOYMENT - 2", included: true },
+        { text: "SEGMENT - 1 (N/B)", included: true },
+        { text: "PAPERTRADING", included: true },
+        { text: "CREATE YOUR STRATEGY", included: false },
+        { text: "WEBHOOK FEATURE", included: false },
+        { text: "MULTIPLE CLIENT MANAGEMENT", included: false },
       ],
-      professionalFeatures: [
-        { text: "20,000+ of PNG & SVG graphics", included: true },
-        { text: "Access to 100 million stock images", included: true },
-        { text: "Upload custom icons and fonts", included: true },
-        { text: "Unlimited Sharing", included: true },
-        { text: "Upload graphics & video in up to 4k", included: true },
-        { text: "Unlimited Projects", included: true },
-        { text: "Instant Access to our design system", included: false },
-        { text: "Create teams to collaborate on designs", included: false },
+      evaluationFeatures: [
+        { text: "1 YEAR ACCESS", included: true },
+        { text: "NO HIDDEN CHARGES", included: true },
+        { text: "NO OF DEPLOYMENT - 5", included: true },
+        { text: "SEGMENT - ALL", included: true },
+        { text: "PAPERTRADING", included: true },
+        { text: "CREATE YOUR STRATEGY - 1", included: true },
+        { text: "WEBHOOK FEATURE", included: false },
+        { text: "MULTIPLE CLIENT MANAGEMENT", included: false },
       ],
-      enterpriseFeatures: [
-        { text: "20,000+ of PNG & SVG graphics", included: true },
-        { text: "Access to 100 million stock images", included: true },
-        { text: "Upload custom icons and fonts", included: true },
-        { text: "Unlimited Sharing", included: true },
-        { text: "Upload graphics & video in up to 4k", included: true },
-        { text: "Unlimited Projects", included: true },
-        { text: "Instant Access to our design system", included: true },
-        { text: "Create teams to collaborate on designs", included: true },
+      eliteFeatures: [
+        { text: "1 YEAR ACCESS", included: true },
+        { text: "NO HIDDEN CHARGES", included: true },
+        { text: "NO OF DEPLOYMENT - ALL", included: true },
+        { text: "SEGMENT - ALL", included: true },
+        { text: "PAPERTRADING", included: true },
+        { text: "CREATE YOUR STRATEGY - 3", included: true },
+        { text: "WEBHOOK FEATURE - 2", included: true },
+        { text: "MULTIPLE CLIENT MANAGEMENT - 1", included: true },
+      ],
+      hniFeatures: [
+        { text: "1 YEAR ACCESS", included: true },
+        { text: "NO HIDDEN CHARGES", included: true },
+        { text: "NO OF DEPLOYMENT - ALL", included: true },
+        { text: "SEGMENT - ALL", included: true },
+        { text: "PAPERTRADING", included: true },
+        { text: "CREATE YOUR STRATEGY - 3", included: true },
+        { text: "WEBHOOK FEATURE - 5", included: true },
+        { text: "MULTIPLE CLIENT MANAGEMENT - 2", included: true },
       ],
     };
   },
