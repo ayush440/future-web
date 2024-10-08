@@ -139,7 +139,7 @@
             </p>
             <div class="text-white mb-4 md:mb-6 flex items-end gap-2">
               <p class="text-3xl md:text-4xl lg:text-5xl text-left font-semibold">₹{{ isYearly ? '50000' : '5999' }}</p>
-              <p class="text-[#4B5768] text-xs md:text-sm">+GST / {{ isYearly ? 'Year' : 'Month' }}</p>
+              <p class="text-white text-xs md:text-sm">+GST / {{ isYearly ? 'Year' : 'Month' }}</p>
             </div>
           </div>
           <div>
