@@ -45,7 +45,7 @@ import { RouterLink } from 'vue-router'
         </a>
       </div>
       <div class="text-[#89A3B2]">
-        <p>All Rights Reserved</p>  
+        <p>All Rights Reserved</p>
       </div>
     </div>
   </footer>
