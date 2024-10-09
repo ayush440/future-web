@@ -31,10 +31,12 @@
       <!-- Pricing Plans -->
       <div
         class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 w-full max-w-7xl mx-auto"
+    ref="pricingCards"
       >
         <!-- Essential Plan -->
         <div
-          class="bg-white bg-opacity-5 border border-white border-opacity-10 p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between"
+          ref="card0"
+          class="pricing-card hover-effect bg-white bg-opacity-5 border border-white border-opacity-10 p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between"
         >
           <div>
             <h3 class="text-lg md:text-xl text-left text-white font-semibold mb-2 md:mb-4">
@@ -66,7 +68,8 @@
 
         <!-- Evaluation Plan -->
         <div
-          class="bg-white bg-opacity-5 border border-white border-opacity-10 p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between"
+          ref="card1"
+          class="pricing-card bg-white bg-opacity-5 border border-white border-opacity-10 p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between"
         >
           <div>
             <h3 class="text-lg md:text-xl text-left text-white font-semibold mb-2 md:mb-4">
@@ -97,7 +100,10 @@
         </div>
 
         <!-- Elite Plan -->
-        <div class="bg-[#30AFE5] p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between">
+        <div 
+          ref="card2"
+          class="pricing-card bg-[#30AFE5] p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between"
+        >
           <div>
             <h3 class="text-lg md:text-xl font-semibold mb-2 md:mb-4 text-left">Elite</h3>
             <p class="text-white-300 mb-4 text-left text-sm md:text-base">
@@ -127,7 +133,8 @@
 
         <!-- HNI Plan -->
         <div
-          class="bg-white bg-opacity-5 border border-opacity-10 border-white p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between"
+          ref="card3"
+          class="pricing-card bg-white bg-opacity-5 border border-opacity-10 border-white p-4 md:p-6 rounded-lg shadow-lg flex flex-col justify-between"
         >
           <div>
             <h3 class="text-lg md:text-xl text-left text-white font-semibold mb-2 md:mb-4">
@@ -163,51 +170,112 @@
 </template>
 
 <script>
+import { ref, onMounted } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
   name: "PricingSection",
-  data() {
+  setup() {
+    const isYearly = ref(false);
+    const pricingCards = ref(null);
+    const card0 = ref(null);
+    const card1 = ref(null);
+    const card2 = ref(null);
+    const card3 = ref(null);
+
+    const essentialFeatures = [
+      { text: "1 YEAR ACCESS", included: true },
+      { text: "NO HIDDEN CHARGES", included: true },
+      { text: "NO OF DEPLOYMENT - 2", included: true },
+      { text: "SEGMENT - 1 (N/B)", included: true },
+      { text: "PAPERTRADING", included: true },
+      { text: "CREATE YOUR STRATEGY", included: false },
+      { text: "WEBHOOK FEATURE", included: false },
+      { text: "MULTIPLE CLIENT MANAGEMENT", included: false },
+    ];
+
+    const evaluationFeatures = [
+      { text: "1 YEAR ACCESS", included: true },
+      { text: "NO HIDDEN CHARGES", included: true },
+      { text: "NO OF DEPLOYMENT - 5", included: true },
+      { text: "SEGMENT - ALL", included: true },
+      { text: "PAPERTRADING", included: true },
+      { text: "CREATE YOUR STRATEGY - 1", included: true },
+      { text: "WEBHOOK FEATURE", included: false },
+      { text: "MULTIPLE CLIENT MANAGEMENT", included: false },
+    ];
+
+    const eliteFeatures = [
+      { text: "1 YEAR ACCESS", included: true },
+      { text: "NO HIDDEN CHARGES", included: true },
+      { text: "NO OF DEPLOYMENT - ALL", included: true },
+      { text: "SEGMENT - ALL", included: true },
+      { text: "PAPERTRADING", included: true },
+      { text: "CREATE YOUR STRATEGY - 3", included: true },
+      { text: "WEBHOOK FEATURE - 2", included: true },
+      { text: "MULTIPLE CLIENT MANAGEMENT - 1", included: true },
+    ];
+
+    const hniFeatures = [
+      { text: "1 YEAR ACCESS", included: true },
+      { text: "NO HIDDEN CHARGES", included: true },
+      { text: "NO OF DEPLOYMENT - ALL", included: true },
+      { text: "SEGMENT - ALL", included: true },
+      { text: "PAPERTRADING", included: true },
+      { text: "CREATE YOUR STRATEGY - 3", included: true },
+      { text: "WEBHOOK FEATURE - 5", included: true },
+      { text: "MULTIPLE CLIENT MANAGEMENT - 2", included: true },
+    ];
+
+    onMounted(() => {
+      const cards = [card0.value, card1.value, card2.value, card3.value];
+      
+      cards.forEach((card, index) => {
+        gsap.set(card, { 
+          opacity: 0, 
+          y: () => {
+            if (window.innerWidth <= 768) return 50;
+            if (window.innerWidth <= 1279) return 75;
+            return 100;
+          }
+        });
+
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top bottom-=100",
+          onEnter: () => {
+            gsap.to(card, {
+              opacity: 1,
+              y: 0,
+              duration: () => {
+                if (window.innerWidth <= 768) return 0.6;
+                if (window.innerWidth <= 1279) return 0.7;
+                return 0.8;
+              },
+              ease: "power3.out",
+              
+              delay: index * 0.2
+            });
+          },
+          once: true
+        });
+      });
+    });
+
     return {
-      isYearly: false,
-      essentialFeatures: [
-        { text: "1 YEAR ACCESS", included: true },
-        { text: "NO HIDDEN CHARGES", included: true },
-        { text: "NO OF DEPLOYMENT - 2", included: true },
-        { text: "SEGMENT - 1 (N/B)", included: true },
-        { text: "PAPERTRADING", included: true },
-        { text: "CREATE YOUR STRATEGY", included: false },
-        { text: "WEBHOOK FEATURE", included: false },
-        { text: "MULTIPLE CLIENT MANAGEMENT", included: false },
-      ],
-      evaluationFeatures: [
-        { text: "1 YEAR ACCESS", included: true },
-        { text: "NO HIDDEN CHARGES", included: true },
-        { text: "NO OF DEPLOYMENT - 5", included: true },
-        { text: "SEGMENT - ALL", included: true },
-        { text: "PAPERTRADING", included: true },
-        { text: "CREATE YOUR STRATEGY - 1", included: true },
-        { text: "WEBHOOK FEATURE", included: false },
-        { text: "MULTIPLE CLIENT MANAGEMENT", included: false },
-      ],
-      eliteFeatures: [
-        { text: "1 YEAR ACCESS", included: true },
-        { text: "NO HIDDEN CHARGES", included: true },
-        { text: "NO OF DEPLOYMENT - ALL", included: true },
-        { text: "SEGMENT - ALL", included: true },
-        { text: "PAPERTRADING", included: true },
-        { text: "CREATE YOUR STRATEGY - 3", included: true },
-        { text: "WEBHOOK FEATURE - 2", included: true },
-        { text: "MULTIPLE CLIENT MANAGEMENT - 1", included: true },
-      ],
-      hniFeatures: [
-        { text: "1 YEAR ACCESS", included: true },
-        { text: "NO HIDDEN CHARGES", included: true },
-        { text: "NO OF DEPLOYMENT - ALL", included: true },
-        { text: "SEGMENT - ALL", included: true },
-        { text: "PAPERTRADING", included: true },
-        { text: "CREATE YOUR STRATEGY - 3", included: true },
-        { text: "WEBHOOK FEATURE - 5", included: true },
-        { text: "MULTIPLE CLIENT MANAGEMENT - 2", included: true },
-      ],
+      isYearly,
+      pricingCards,
+      card0,
+      card1,
+      card2,
+      card3,
+      essentialFeatures,
+      evaluationFeatures,
+      eliteFeatures,
+      hniFeatures,
     };
   },
 };
@@ -228,4 +296,24 @@ input:checked + .toggle-bg {
 input:checked + .toggle-bg .dot {
   transform: translateX(100%);
 }
+
+/* Pricing Card Animation Styles */
+.pricing-card {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
+@media (max-width: 768px) {
+  .pricing-card {
+    transform: translateY(50px);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1279px) {
+  .pricing-card {
+    transform: translateY(75px);
+  }
+}
+
+
 </style>
