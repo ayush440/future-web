@@ -128,7 +128,7 @@ const handleSubmit = async () => {
     <div class="bg-[#1e2a4a] rounded-md my-10">
       <div class="w-full max-w-md p-8 rounded-lg shadow-lg bg-opacity-100 relative">
         <div class="text-center mb-8">
-          <img src="/images/LOGOlight.svg" alt="Logo" class="w-16 h-16 mx-auto mb-4 scale-150" />
+          <img src="/images/LOGOlight.svg" alt="Logo" class="w-16 h-16 mx-auto mb-4 scale-150 hidden lg:block xl:block md:block" />
           <h2 class="text-3xl font-bold text-white mb-2">Contact Us</h2>
           <p class="text-gray-300">Please fill out the form below to get in touch.</p>
         </div>
