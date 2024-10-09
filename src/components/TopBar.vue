@@ -43,12 +43,12 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <div class="flex justify-between items-center py-4 px-6 sticky top-0 z-30 bg-white border-b">
+  <div class="flex justify-between items-center py-4 px-6 sticky top-0 z-30 bg-white border-b pb-1">
     <div class="flex items-center space-x-2">
       <img 
         src="/images/LOGOO.png" 
         alt="Future Management Services Logo" 
-        class="w-auto h-12 md:h-16 lg:h-20 xl:h-24"
+        class="w-auto h-12 md:h-16 lg:h-20 xl:h-24 scale-75"
       >
     </div>
 
@@ -128,7 +128,7 @@ const handleSubmit = async () => {
     <div class="bg-[#1e2a4a] rounded-md my-10">
       <div class="w-full max-w-md p-8 rounded-lg shadow-lg bg-opacity-100 relative">
         <div class="text-center mb-8">
-          <img src="/images/LOGOO.png" alt="Logo" class="w-16 h-16 mx-auto mb-4" />
+          <img src="/images/LOGOlight.svg" alt="Logo" class="w-16 h-16 mx-auto mb-4 scale-150" />
           <h2 class="text-3xl font-bold text-white mb-2">Contact Us</h2>
           <p class="text-gray-300">Please fill out the form below to get in touch.</p>
         </div>
