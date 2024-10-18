@@ -32,6 +32,18 @@ const showForm = ref(false);
 const handleForm = () => {
   showForm.value = !showForm.value;
 };
+
+const scrollTo = (sectionId) => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const yOffset = -170; // Adjust this value to fine-tune the scroll position
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({top: y, behavior: 'smooth'});
+      }
+      if (sidebarOpen.value) {
+        toggleSidebar();
+      }
+    };
 </script>
 
 <template>
@@ -93,8 +105,10 @@ const handleForm = () => {
         <div class="text-[#89A3B2] space-y-1">
           <a class="cursor-pointer hover:text-white block" href="https://app.futuremanagment.com/register">Register as a User</a>
           <a class="cursor-pointer hover:text-white block" href="https://app.futuremanagment.com/register">Sign in</a>
-          <a class="cursor-pointer hover:text-white block" href="#about">About Us</a>
           
+          
+          <button @click="scrollTo('about')" class="cursor-pointer hover:text-white block">About Us</button>
+
           <button @click="handleForm" class="cursor-pointer hover:text-white block" >Contact Us</button>
         </div>
       </div>
