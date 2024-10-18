@@ -1,5 +1,37 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { reactive, ref } from 'vue';
+
+const form = reactive({
+    name: '',
+    email: '',
+    mobile: '',
+    message: '',
+    agreeToTerms: false,
+});
+
+const handleSubmit = async () => {
+  if (form.agreeToTerms) {
+    console.log(form);
+    // Add your form submission logic here
+    const response = await fetch('/contact-us', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form),
+    });
+    console.log(response);
+    showForm.value = false; // Close the modal after submission
+  } else {
+    alert('Please agree to the Terms and Privacy Policy');
+  }
+};
+
+const showForm = ref(false);
+const handleForm = () => {
+  showForm.value = !showForm.value;
+};
 </script>
 
 <template>
@@ -11,13 +43,59 @@ import { RouterLink } from 'vue-router'
           Keep all your health records in one secure place for easy access to your medical history during doctor visits.
         </p>
       </div>
+      <div v-if="showForm"
+    class="transition-all fixed inset-0 w-full h-screen bg-black bg-opacity-50 flex justify-center items-center overflow-hidden"
+    style="z-index: 9999;">
+    <div class="bg-[#1e2a4a] rounded-md my-10">
+      <div class="w-full max-w-md p-8 rounded-lg shadow-lg bg-opacity-100 relative">
+        <div class="text-center mb-8">
+          <img src="/images/LOGOlight.svg" alt="Logo" class="w-16 h-16 mx-auto mb-4 scale-150 hidden lg:block xl:block md:block" />
+          <h2 class="text-3xl font-bold text-white mb-2">Contact Us</h2>
+          <p class="text-gray-300">Please fill out the form below to get in touch.</p>
+        </div>
+        <form @submit.prevent="handleSubmit" action="/submit" method="POST" class="space-y-6">
+          <div>
+            <input v-model="form.name" type="text" placeholder="Name" required
+              class="w-full px-4 py-2 rounded bg-[#31427A] text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white" />
+          </div>
+          <div>
+            <input v-model="form.email" type="email" placeholder="Email" required
+              class="w-full px-4 py-2 rounded bg-[#31427A] text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white" />
+          </div>
+          <div>
+            <input v-model="form.mobile" type="tel" placeholder="Mobile Number" required
+              class="w-full px-4 py-2 rounded bg-[#31427A] text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white" />
+          </div>
+          <div>
+            <textarea v-model="form.message" placeholder="Your Message" required rows="4"
+              class="w-full px-4 py-2 rounded bg-[#31427A] text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-white resize-none"></textarea>
+          </div>
+          <div class="flex items-center">
+            <input type="checkbox" id="terms" v-model="form.agreeToTerms" required class="mr-2" />
+            <label for="terms" class="text-gray-300 text-sm">I agree to the Terms and Privacy Policy.</label>
+          </div>
+          <div class="flex justify-between">
+            <button type="submit"
+              class="px-8 py-2 bg-white text-[#1e2a4a] font-semibold rounded hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white">
+              Submit
+            </button>
+            <button @click="showForm = false"
+              class="px-8 py-2 bg-gray-500 text-white font-semibold rounded hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-700">
+              Close
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
       <div class="space-y-2 text-[16px] justify-self-start mt-8 md:mt-0 md:justify-self-center">
         <p>Quick Links</p>
         <div class="text-[#89A3B2] space-y-1">
           <a class="cursor-pointer hover:text-white block" href="https://app.futuremanagment.com/register">Register as a User</a>
           <a class="cursor-pointer hover:text-white block" href="https://app.futuremanagment.com/register">Sign in</a>
-          <RouterLink :to="{ path: '/', hash: '#about' }" class="cursor-pointer hover:text-white block">About Us</RouterLink>
-          <a class="cursor-pointer hover:text-white block" href="#">Contact Us</a>
+          <a class="cursor-pointer hover:text-white block" href="#about">About Us</a>
+          
+          <button @click="handleForm" class="cursor-pointer hover:text-white block" >Contact Us</button>
         </div>
       </div>
       <div class="space-y-2 text-[16px] justify-self-start mt-8 md:mt-0 md:justify-self-center">
