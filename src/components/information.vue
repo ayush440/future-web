@@ -30,8 +30,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <section id="about-us" class="p-10 md:p-16 xl:p-20 3xl:max-w-[40%] mx-auto">
-    <div class="w-full xl:w-[100%] space-y-3">
+  <section id="about-us" class="p-10 md:p-16 xl:p-20 3xl:max-w-[80%] mx-auto">
+    <div class="w-full xl:w-[100%] space-y-3 ">
       <p class="text-[#31427A] font-bold text-[46px] text-center">About Us</p>
       <h1 class=" text-[30px] md:text-[36px] leading-[40px] md:leading-[45px] text-center">
         At <strong>Future Management Services</strong>, we’re on a mission to simplify and empower your trading experience with technology.
